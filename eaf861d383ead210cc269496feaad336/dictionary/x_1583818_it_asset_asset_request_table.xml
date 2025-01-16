@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" db_object_id="e28b39db83aed210cc269496feaad328" label="Asset Request Table" max_length="40" name="x_1583818_it_asset_asset_request_table" type="collection">
+        <element attributes="encode_utf8=false" label="Assigned To" max_length="32" name="assigned_to" reference="sys_user" type="reference"/>
+        <element attributes="encode_utf8=false" label="Department" max_length="32" name="u_department" reference="cmdb_ci_computer" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Priority" max_length="40" name="priority" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="3" value="3"/>
+                <element inactive_on_update="false" label="1" value="1"/>
+                <element inactive_on_update="false" label="2" value="2"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Submitted" sequence="4" value="submitted"/>
+                <element inactive_on_update="false" label="In Progress" sequence="3" value="in progress"/>
+                <element inactive_on_update="false" label="Closed incomplete" value="closed_incomplete"/>
+                <element inactive_on_update="false" label="Closed" sequence="0" value="closed"/>
+                <element inactive_on_update="false" label="Delivered" sequence="1" value="delivered"/>
+                <element inactive_on_update="false" label="Dispatched" sequence="2" value="dispatched"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Comments" max_length="500" name="comments" type="string"/>
+        <element attributes="encode_utf8=false" label="Requestor" max_length="32" name="requestor" reference="sys_user" type="reference"/>
+        <element attributes="encode_utf8=false" label="Opened By" max_length="32" name="opened_by" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Work Notes" max_length="4000" name="work_notes" type="journal"/>
+        <element attributes="edge_encryption_enabled=true" label="Short Description" max_length="160" name="short_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Description" max_length="4000" name="description" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Type of Asset" max_length="40" name="type_of_asset" type="choice">
+            <choice>
+                <element dependent_value="schneider_electric" inactive_on_update="false" label="UPS" value="ups"/>
+                <element dependent_value="schneider_electric , abb" inactive_on_update="false" label="UPS" value="ups"/>
+                <element inactive_on_update="false" label="Printer" value="printer"/>
+                <element inactive_on_update="false" label="Network Gear" value="network"/>
+                <element inactive_on_update="false" label="Computer" value="computer"/>
+                <element dependent_value="abb" inactive_on_update="false" label="UPS" value="ups"/>
+            </choice>
+        </element>
+        <element attributes="encode_utf8=false" label="Assignment Group" max_length="32" name="assignment_group" reference="sys_user_group" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" dependent="type_of_asset" dependent_on_field="type_of_asset" label="Consumables" max_length="40" name="consumables" type="choice" use_dependent_field="true">
+            <choice>
+                <element dependent_value="printer" inactive_on_update="false" label="Xerox" value="xerox"/>
+                <element dependent_value="network" inactive_on_update="false" label="Modem" value="modem"/>
+                <element dependent_value="computer" inactive_on_update="false" label="Mouse" value="mouse"/>
+                <element dependent_value="ups" inactive_on_update="false" label="Eaton" value="eaton"/>
+                <element dependent_value="printer" inactive_on_update="false" label="Epson" value="epson"/>
+                <element dependent_value="network" inactive_on_update="false" label="Router" value="router"/>
+                <element dependent_value="ups" inactive_on_update="false" label="Mitsubishi" value="mitsubishi"/>
+                <element dependent_value="ups" inactive_on_update="false" label="Schneider Electric" value="schneider_electric"/>
+                <element dependent_value="network" inactive_on_update="false" label="Network Switch" value="network_switch"/>
+                <element dependent_value="printer" inactive_on_update="false" label="Canon" value="canon"/>
+                <element dependent_value="ups" inactive_on_update="false" label="ABB" value="abb"/>
+                <element dependent_value="ups" inactive_on_update="false" label="Vertiv Group Corp" value="vertiv_group_corp"/>
+                <element dependent_value="printer" inactive_on_update="false" label="HP" value="hp"/>
+                <element dependent_value="computer" inactive_on_update="false" label="Speakers" value="speakers"/>
+                <element dependent_value="computer" inactive_on_update="false" label="Keyboard" value="keyboard"/>
+            </choice>
+        </element>
+        <element default="javascript:global.getNextObjNumberPadded();" display="true" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="encode_utf8=false" label="Company" max_length="32" name="company" reference="core_company" type="reference"/>
+        <element attributes="encode_utf8=false" label="Asset" max_length="32" name="asset" reference="cmdb_ci" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Comment" max_length="4000" name="u_journal_1" type="journal"/>
+        <element attributes="edge_encryption_enabled=true" label="Number " max_length="40" name="number_2" type="string"/>
+        <index name="index">
+            <element name="asset"/>
+        </index>
+        <index name="index2">
+            <element name="assigned_to"/>
+        </index>
+        <index name="index3">
+            <element name="assignment_group"/>
+        </index>
+        <index name="index4">
+            <element name="company"/>
+        </index>
+        <index name="index5">
+            <element name="opened_by"/>
+        </index>
+        <index name="index6">
+            <element name="requestor"/>
+        </index>
+        <index name="index7">
+            <element name="u_department"/>
+        </index>
+    </element>
+</database>

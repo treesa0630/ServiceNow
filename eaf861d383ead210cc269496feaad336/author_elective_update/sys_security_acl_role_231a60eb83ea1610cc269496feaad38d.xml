@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="DELETE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-24 07:18:46</sys_created_on>
+        <sys_id>231a60eb83ea1610cc269496feaad38d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1583818_it_asset_asset_request_table.it_asset.it.asset.managers</sys_name>
+        <sys_package display_value="IT Asset Management" source="x_1583818_it_asset">eaf861d383ead210cc269496feaad336</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IT Asset Management">eaf861d383ead210cc269496feaad336</sys_scope>
+        <sys_security_acl display_value="x_1583818_it_asset_asset_request_table">419bb9db83aed210cc269496feaad3f5</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_231a60eb83ea1610cc269496feaad38d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-12-24 07:18:46</sys_updated_on>
+        <sys_user_role display_value="it_asset.it.asset.managers" name="it_asset.it.asset.managers">59f9ed97836ed210cc269496feaad31b</sys_user_role>
+    </sys_security_acl_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="IT Asset Management">eaf861d383ead210cc269496feaad336</application>
+        <file_path/>
+        <instance_id>c2f274611bcd02d032182f8dee4bcba3</instance_id>
+        <instance_name>dev245182</instance_name>
+        <name>sys_security_acl_role_231a60eb83ea1610cc269496feaad38d</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2024-12-24 07:18:46</sys_created_on><sys_id>231a60eb83ea1610cc269496feaad38d</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_1583818_it_asset_asset_request_table.it_asset.it.asset.managers</sys_name><sys_package display_value="IT Asset Management" source="x_1583818_it_asset">eaf861d383ead210cc269496feaad336</sys_package><sys_policy/><sys_scope display_value="IT Asset Management">eaf861d383ead210cc269496feaad336</sys_scope><sys_security_acl display_value="x_1583818_it_asset_asset_request_table">419bb9db83aed210cc269496feaad3f5</sys_security_acl><sys_update_name>sys_security_acl_role_231a60eb83ea1610cc269496feaad38d</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2024-12-24 07:18:46</sys_updated_on><sys_user_role display_value="it_asset.it.asset.managers" name="it_asset.it.asset.managers">59f9ed97836ed210cc269496feaad31b</sys_user_role></sys_security_acl_role></record_update>]]></payload>
+        <payload_hash>1301766049</payload_hash>
+        <record_name>x_1583818_it_asset_asset_request_table.it_asset.it.asset.managers</record_name>
+        <reverted_from/>
+        <source>9d4cc4a7836a1610cc269496feaad3df</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-24 07:18:46</sys_created_on>
+        <sys_id>fa2ae0eb83ea1610cc269496feaad317</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>193f78853620000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-12-24 07:18:46</sys_updated_on>
+        <type>Access Roles</type>
+        <update_guid>fe2ae0ebe3ea1610691d5ac056e2b616</update_guid>
+        <update_guid_history>fe2ae0ebe3ea1610691d5ac056e2b616:1301766049</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x_1583818_it_asset_asset_request_table.it_asset.it.asset.managers">3214d66b83e25610cc269496feaad353</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-24 15:01:37</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
+        <sys_id>0187708deb174898814bdea97f1a4840</sys_id>
+        <sys_metadata>231a60eb83ea1610cc269496feaad38d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1583818_it_asset_asset_request_table.it_asset.it.asset.managers</sys_name>
+        <sys_package display_value="IT Asset Management" source="x_1583818_it_asset">eaf861d383ead210cc269496feaad336</sys_package>
+        <sys_parent display_value="x_1583818_it_asset_asset_request_table">419bb9db83aed210cc269496feaad3f5</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="IT Asset Management">eaf861d383ead210cc269496feaad336</sys_scope>
+        <sys_scope_delete display_value="">4b72e9d5340b49b0876b9f10e6edf640</sys_scope_delete>
+        <sys_update_name>sys_security_acl_role_231a60eb83ea1610cc269496feaad38d</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_role_231a60eb83ea1610cc269496feaad38d">fa2ae0eb83ea1610cc269496feaad317</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-12-24 15:01:37</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

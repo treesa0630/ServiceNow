@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>false</active>
+        <api_name>x_1583818_it_asset.createHardwareModelConsumable</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>createHardwareModelConsumable</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var createHardwareModelConsumable = Class.create();
+createHardwareModelConsumable.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    createCMDB: function() {
+        var currentRec = this.getParameter("currentRec");
+
+		
+        var current = new GlideRecord('x_1583818_it_asset_asset_request_table');
+        current.addQuery('sys_id', currentRec);
+        current.query();
+        if (current.next()) {
+
+            try {
+                var type = current.type_of_asset.getDisplayValue();
+                var cmdbTable = '';
+                var gr = new GlideRecord('sys_db_object');
+                gr.addQuery('name', 'STARTSWITH', 'cmdb_ci');
+                gr.addQuery('label', type);
+                gr.setLimit(1);
+                gr.query();
+                // gs.info('count '+gr.getRowCount());
+                if (gr.next()) {
+                    cmdbTable = gr.name;
+                }
+                gs.info("table name:" +cmdbTable);
+                var grCmdb = new GlideRecord(cmdbTable);
+                grCmdb.initialize();
+                grCmdb.manufacturer = current.requestor.company;
+                grCmdb.department = current.requestor.department;
+                grCmdb.assigned_to = current.requestor;
+                var cmdb = grCmdb.insert();
+                current.asset = cmdb;
+
+
+
+                var grHardware = new GlideRecord('alm_hardware');
+                grHardware.initialize();
+                grHardware.manufacturer = current.requestor.company;
+                grHardware.department = current.requestor.department;
+                grHardware.assigned_to = current.requestor;
+                grHardware.install_status = "2";
+                grHardware.ci = cmdb;
+                var hardware = grHardware.insert();
+
+
+
+                var grModel = new GlideRecord('cmdb_model');
+                grModel.initialize();
+                grModel.cmdb_model_category = '218323293743100044e0bfc8bcbe5d61';
+                grModel.manufacturer = current.requestor.company;
+                grModel.name = current.consumables.getDisplayValue();
+                var model = grModel.insert();
+
+
+
+                var grConsumable = new GlideRecord('alm_consumable');
+                grConsumable.initialize();
+                grConsumable.model = model;
+                grConsumable.model_category = '218323293743100044e0bfc8bcbe5d61';
+                grConsumable.location = current.requestor.location;
+                grConsumable.install_status = "2";
+                grConsumable.parent = hardware;
+
+                var consumable = grConsumable.insert();
+
+
+
+                current.update();
+				return true;
+            } catch (ex) {
+                gs.info('The error is ' + ex.message);
+            }
+
+        }
+
+    },
+
+
+    type: 'createHardwareModelConsumable'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-31 01:52:07</sys_created_on>
+        <sys_id>e7126fa58376d610cc269496feaad3e0</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>createHardwareModelConsumable</sys_name>
+        <sys_package display_value="IT Asset Management" source="x_1583818_it_asset">eaf861d383ead210cc269496feaad336</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="IT Asset Management">eaf861d383ead210cc269496feaad336</sys_scope>
+        <sys_update_name>sys_script_include_e7126fa58376d610cc269496feaad3e0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-01 06:40:28</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>e7126fa58376d610cc269496feaad3e0</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-31 01:52:06</sys_created_on>
+        <sys_id>f5826f258376d610cc269496feaad32a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-12-31 01:52:06</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

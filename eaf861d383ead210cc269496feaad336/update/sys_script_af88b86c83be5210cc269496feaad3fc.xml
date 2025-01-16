@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>false</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_1583818_it_asset_asset_request_table</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Assi. group can be changed by assi. user</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous) {
+
+
+
+    var groups = gs.getUser().getMyGroups();
+
+    var assiGrp = current.getValue('assignment_group');
+    var preGrp = previous.getValue('assignment_group');
+
+    if (groups.includes(preGrp)) {
+        var curValue = current.getDisplayValue('assignment_group').split(' ');
+        var preValue = previous.getDisplayValue('assignment_group').split(' ');
+        var first_curValue = curValue[0];
+        var second_curValue = curValue[1];
+        var first_preValue = preValue[0];
+        var second_preValue = preValue[1];
+
+        if (first_curValue == first_preValue || second_curValue == second_preValue) {
+            gs.addInfoMessage('Your group is changed');
+        } else {
+            gs.addErrorMessage('Group is not changed');
+            current.setAbortAction(true);
+        }
+    } else {
+        gs.addErrorMessage('User doesnt mbelong to the assignment group');
+        current.setAbortAction(true);
+    }
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-27 12:31:37</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>af88b86c83be5210cc269496feaad3fc</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Assi. group can be changed by assi. user</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="IT Asset Management" source="x_1583818_it_asset">eaf861d383ead210cc269496feaad336</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IT Asset Management">eaf861d383ead210cc269496feaad336</sys_scope>
+        <sys_update_name>sys_script_af88b86c83be5210cc269496feaad3fc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-12-30 07:14:21</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=af88b86c83be5210cc269496feaad3fc"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>af88b86c83be5210cc269496feaad3fc</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-27 12:31:37</sys_created_on>
+        <sys_id>228e852083fe5210cc269496feaad3b2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-12-27 12:31:37</sys_updated_on>
+        <table>sys_script</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

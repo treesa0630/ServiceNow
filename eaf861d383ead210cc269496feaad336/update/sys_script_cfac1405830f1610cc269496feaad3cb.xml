@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_1583818_it_asset_asset_request_table</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="x_1583818_it_asset_asset_request_table">statusCHANGESTOin progress^ORstatusCHANGESTOclosed^EQ<item display_value="In Progress" endquery="false" field="status" goto="false" newquery="false" operator="CHANGESTO" or="false" value="in progress"/>
+            <item display_value="Closed" endquery="false" field="status" goto="false" newquery="false" operator="CHANGESTO" or="true" value="closed"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>change state when asset is in progress</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+
+    // Add your code here
+    var ga = new GlideRecord('sc_task');
+    ga.addQuery("variables.99fa3049838f1610cc269496feaad347", current.sys_id);
+    ga.setLimit(1);
+    ga.query();
+    if (ga.next()) {
+        if (current.status == 'in_process') {
+            ga.state = '2';
+            ga.assigned_to = current.assigned_to;
+            ga.assignment_group = current.assignment_group;
+        } else if (current.status == 'closed') {
+            ga.state = "3";
+            ga.assigned_to = current.assigned_to;
+            ga.assignment_group = current.assignment_group;
+        }
+    }
+    ga.update();
+
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-10 08:38:37</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>cfac1405830f1610cc269496feaad3cb</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>change state when asset is in progress</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="IT Asset Management" source="x_1583818_it_asset">eaf861d383ead210cc269496feaad336</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IT Asset Management">eaf861d383ead210cc269496feaad336</sys_scope>
+        <sys_update_name>sys_script_cfac1405830f1610cc269496feaad3cb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-11 09:36:56</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=cfac1405830f1610cc269496feaad3cb"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>cfac1405830f1610cc269496feaad3cb</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-10 08:38:36</sys_created_on>
+        <sys_id>397f98cd838b1610cc269496feaad3e2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-10 08:38:36</sys_updated_on>
+        <table>sys_script</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

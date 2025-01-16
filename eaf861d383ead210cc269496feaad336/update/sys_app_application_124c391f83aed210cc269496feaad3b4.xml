@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_application">
+    <sys_app_application action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category display_value="">Custom Applications</category>
+        <description>An application to simplify IT asset requests, management, and tracking with roles, automation, and notifications.</description>
+        <device_type>browser</device_type>
+        <hint>An application to simplify IT asset requests, management, and tracking with roles, automation, and notifications.</hint>
+        <name/>
+        <order/>
+        <roles>it_asset.it.asset.managers,it_asset.it.asset.requestors,it_asset.it.asset.users</roles>
+        <sys_class_name>sys_app_application</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-23 18:39:04</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>124c391f83aed210cc269496feaad3b4</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>IT Asset Management</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="IT Asset Management" source="x_1583818_it_asset">eaf861d383ead210cc269496feaad336</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IT Asset Management">eaf861d383ead210cc269496feaad336</sys_scope>
+        <sys_update_name>sys_app_application_124c391f83aed210cc269496feaad3b4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-12-24 05:31:48</sys_updated_on>
+        <title>IT Asset Management</title>
+        <view_name/>
+    </sys_app_application>
+</record_update>

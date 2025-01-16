@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1583818_it_asset.priorityChange</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>priorityChange</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var priorityChange = Class.create();
+priorityChange.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+	changePriority: function(){
+		var requestor = this.getParameter('requestor');
+		var gr =new GlideRecord('sys_user');
+		gr.addQuery('sys_id',requestor);
+		gr.query();
+		if(gr.next()){
+			if(gr.vip == true || gr.vip == 'true'){
+				return 'true';
+			}
+			else{
+				return 'false';
+			}
+
+		}
+			
+		
+	},
+
+    type: 'priorityChange'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-09 09:32:16</sys_created_on>
+        <sys_id>dfd1e3a08347d210cc269496feaad34c</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>priorityChange</sys_name>
+        <sys_package display_value="IT Asset Management" source="x_1583818_it_asset">eaf861d383ead210cc269496feaad336</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="IT Asset Management">eaf861d383ead210cc269496feaad336</sys_scope>
+        <sys_update_name>sys_script_include_dfd1e3a08347d210cc269496feaad34c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-09 11:04:09</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>dfd1e3a08347d210cc269496feaad34c</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-09 09:32:15</sys_created_on>
+        <sys_id>b922abac8307d210cc269496feaad3d8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-09 09:32:15</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

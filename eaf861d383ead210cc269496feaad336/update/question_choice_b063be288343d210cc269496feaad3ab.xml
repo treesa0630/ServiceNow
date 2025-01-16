@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="question_choice">
+    <question_choice action="INSERT_OR_UPDATE">
+        <inactive>false</inactive>
+        <misc>0</misc>
+        <order>100</order>
+        <published_ref/>
+        <question display_value="Please provide the item you required">9cc072a48343d210cc269496feaad3bf</question>
+        <rec_misc>0</rec_misc>
+        <sys_class_name>question_choice</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-09 06:07:55</sys_created_on>
+        <sys_id>b063be288343d210cc269496feaad3ab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Xerox</sys_name>
+        <sys_package display_value="IT Asset Management" source="x_1583818_it_asset">eaf861d383ead210cc269496feaad336</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IT Asset Management">eaf861d383ead210cc269496feaad336</sys_scope>
+        <sys_update_name>question_choice_b063be288343d210cc269496feaad3ab</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-09 06:07:55</sys_updated_on>
+        <text>Xerox</text>
+        <value>xerox</value>
+    </question_choice>
+    <fx_price action="delete_multiple" query="id=b063be288343d210cc269496feaad3ab"/>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>misc</field>
+        <id>b063be288343d210cc269496feaad3ab</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-09 06:07:55</sys_created_on>
+        <sys_id>706376688343d210cc269496feaad30f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-09 06:07:55</sys_updated_on>
+        <table>question_choice</table>
+        <type>calculated</type>
+    </fx_price>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>rec_misc</field>
+        <id>b063be288343d210cc269496feaad3ab</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-09 06:07:55</sys_created_on>
+        <sys_id>386376688343d210cc269496feaad30e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-09 06:07:55</sys_updated_on>
+        <table>question_choice</table>
+        <type>calculated</type>
+    </fx_price>
+</record_update>

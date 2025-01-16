@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>sc_task</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="sc_task">stateCHANGESTO4^request_item.cat_item=7489a26c8303d210cc269496feaad31e^EQ<item display_value="Closed Incomplete" endquery="false" field="state" goto="false" newquery="false" operator="CHANGESTO" or="false" value="4"/>
+            <item display_table="sc_cat_item" display_value="IT asset request" endquery="false" field="request_item.cat_item" goto="false" newquery="false" operator="=" or="false" value="7489a26c8303d210cc269496feaad31e"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>change status if sc_task closed incomple</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[// (function executeRule(current, previous /*null when async*/ ) {
+
+//     var assetID = current.request_item.variables.asset_request;
+//     var gr = new GlideRecord('x_1583818_it_asset_asset_request_table');
+//     gr.addQuery('sys_id', assetID);
+//     gr.query();
+//     if (gr.next()) {
+//         gr.status = 'closed_incomplete';
+//         var asset = gr.asset;
+
+//         var ga = new GlideRecord('cmdb_ci');
+//         ga.addQuery('sys_id', asset);
+//         gr.setLimit(1);
+//         ga.query();
+//         if (ga.next()) {
+//             var hardware = new GlideRecord('alm_hardware');
+//             hardware.addQuery('ci.sys_id', asset);
+//             hardware.query();
+//             if (hardware.next()) {
+//                 var con = hardware.sys_id;
+//                 var consumable = new GlideRecord('alm_consumable');
+//                 consumable.addQuery('parent.sys_id', con);
+//                 consumable.setLimit(1);
+//                 consumable.query();
+//                 if (consumable.next()) {
+//                     var mod = consumable.model;
+//                     var model = new GlideRecord('cmdb_model');
+//                     model.addQuery('sys_id', mod);
+// 					model.setLimit(1);
+// 					model.query();
+// 					if(model.next()){
+// 						model.deleteRecord();
+// 					}
+// 					consumable.deleteRecord();
+//                 }
+// 				hardware.deleteRecord();
+//             }
+//         }
+//     }
+
+//     gr.update();
+
+
+// })(current, previous);
+
+
+
+
+(function executeRule(current, previous) {
+
+    // Add your code here
+    var asset_req = current.request_item.variables.asset_request;
+    var gr = new GlideRecord('x_1583818_it_asset_asset_request_table');
+    gr.addQuery('sys_id', asset_req);
+    gr.setLimit(1);
+    gr.query();
+    if (gr.next()) {
+        gr.status = 'closed _incomplete';
+        var asset = gr.asset;
+
+        var ga = new GlideRecord('cmdb_ci');
+        ga.addQuery('sys_id', asset);
+        ga.setLimit(1);
+        ga.query();
+
+        if (ga.next()) {
+            var hardware = new GlideRecord('alm_hardware');
+            hardware.addQuery('ci.sys_id', asset);
+            hardware.query();
+            if (hardware.next()) {
+                var con = hardware.sys_id;
+                var consumable = new GlideRecord('alm_consumable');
+                consumable.addQuery('parent.sys_id', con);
+                consumable.setLimit(1);
+                consumable.query();
+                if (consumable.next()) {
+                    var mod = consumable.model;
+                    var model = new GlideRecord('cmdb_model');
+                    model.addQuery('sys_id', mod);
+                    model.setLimit(1);
+                    model.query();
+                    if (model.next()) {
+                        model.deleteRecord();
+                    }
+                    consumable.deleteRecord();
+                }
+                hardware.deleteRecord();
+            }
+        }
+
+
+        gr.update();
+    }
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-11 02:37:46</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>2a7598d5838f5610cc269496feaad34e</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>change status if sc_task closed incomple</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="IT Asset Management" source="x_1583818_it_asset">eaf861d383ead210cc269496feaad336</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IT Asset Management">eaf861d383ead210cc269496feaad336</sys_scope>
+        <sys_update_name>sys_script_2a7598d5838f5610cc269496feaad34e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-11 11:16:18</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=2a7598d5838f5610cc269496feaad34e"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>2a7598d5838f5610cc269496feaad34e</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-11 02:37:46</sys_created_on>
+        <sys_id>7d76985d838b5610cc269496feaad304</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-11 02:37:46</sys_updated_on>
+        <table>sys_script</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
